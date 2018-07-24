@@ -1,0 +1,47 @@
+
+//restyled tagnames
+
+body {
+    * {
+        font-family: $font--brand__main;
+        color: $color--brand__grey-dark;
+    }
+    p,ul,ol {
+        font-size: $font-size__default;
+    }
+
+    footer {
+        margin-top: 30px;
+    }
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+form {
+    input,
+    select {
+        font-size: $font-size__default;
+    }
+    fieldset {
+        border-width: 0px;
+        margin: 0px;
+        padding: 0em;
+    }
+}
+
+button {
+
+    &.btn {
+        &.btn-primary {
+            border-color: $color--brand__main;
+            background-color: $color--brand__main;
+        }
+    }
+}
+
+table {
+    width: 100%;
+    font-size: 12px;
+}

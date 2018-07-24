@@ -1,0 +1,27 @@
+@import '../../../../assets/sass/includes/variables.scss';
+
+.advertiser-list {
+    margin-top: 30px;
+
+    table {
+        .thead-brand {
+            background-color: $color--main__grey;
+        }
+        
+        thead, tbody {
+            th, td {
+                padding: .5rem;
+                border-bottom: 2px solid $color--brand__grey-dark;
+                a {
+                    color: $color--brand__main;
+
+                }
+            }
+            th {
+                a {
+                    display: contents;
+                }
+            }
+        }
+    }
+}

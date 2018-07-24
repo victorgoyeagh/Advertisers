@@ -1,0 +1,29 @@
+//overwrite bootstrap styles
+
+.modal-dialog {
+    @media (min-width: 576px){
+        max-width: 600px;
+    }
+}
+
+.fas {
+    color: white;
+}
+
+.ngx-pagination {
+
+    font-size: small;
+        a {
+            &:hover {
+                background: none !important;
+            }
+        }
+        .current {
+            border-radius: 4px;
+            background: $color--brand__main !important;
+            span {
+                color: white;
+            }
+        }
+    
+}

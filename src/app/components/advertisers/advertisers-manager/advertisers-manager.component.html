@@ -1,0 +1,114 @@
+<section>
+    <div class="row advertiser-manager">
+        <div class="col-12">
+            <form [formGroup]="advertiserManagerForm" autocomplete="on">
+                <fieldset>
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="firstname">Firstname</label>
+                            <input formControlName="firstname" type="text" id="firstname" aria-describedby="firstname" placeholder="Enter firstname"
+                                maxlength="50" [ngClass]="{
+                            'form-control': true,'form-control-sm': true,
+                            'invalid': advertiserManagerForm.controls.firstname.invalid && advertiserManagerForm.controls.firstname.dirty,
+                            'valid': advertiserManagerForm.controls.firstname.valid && advertiserManagerForm.controls.firstname.dirty}
+                            " />
+                            <div *ngIf="advertiserManagerForm.controls.firstname.invalid && (advertiserManagerForm.controls.firstname.dirty || advertiserManagerForm.controls.firstname.touched)"
+                                class="error-list">
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.firstname.errors.required">
+                                    <small>The name is required</small>
+                                </span>
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.firstname.errors.pattern">
+                                    <small>The name is not in a valid format</small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="lastname">Lastname</label>
+                            <input formControlName="lastname" type="text" id="lastname" aria-describedby="lastname" placeholder="Enter advertiser name"
+                                maxlength="50" [ngClass]="{
+                            'form-control': true,'form-control-sm': true,
+                            'invalid': advertiserManagerForm.controls.lastname.invalid && advertiserManagerForm.controls.lastname.dirty,
+                            'valid': advertiserManagerForm.controls.lastname.valid && advertiserManagerForm.controls.lastname.dirty}
+                            " />
+                            <div *ngIf="advertiserManagerForm.controls.lastname.invalid && (advertiserManagerForm.controls.lastname.dirty || advertiserManagerForm.controls.lastname.touched)"
+                                class="error-list">
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.lastname.errors.required">
+                                    <small>The name is required</small>
+                                </span>
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.lastname.errors.pattern">
+                                    <small>The name is not in a valid format</small>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="email">Email</label>
+                            <input formControlName="email" type="email" id="email" placeholder="Enter email" maxlength="1000" [ngClass]="{
+                        'form-control': true,'form-control-sm': true,
+                        'invalid': advertiserManagerForm.controls.email.invalid && advertiserManagerForm.controls.email.dirty,
+                        'valid': advertiserManagerForm.controls.email.valid && advertiserManagerForm.controls.email.dirty}
+                        " />
+                            <div *ngIf="advertiserManagerForm.controls.email.invalid && (advertiserManagerForm.controls.email.dirty || advertiserManagerForm.controls.email.touched)"
+                                class="error-list">
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.email.errors.required">
+                                    <small>The url is required</small>
+                                </span>
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.email.errors.pattern">
+                                    <small>The url is not in a valid format</small>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="url">Url</label>
+                            <input formControlName="url" type="url" id="url" placeholder="Enter url link" maxlength="1000" [ngClass]="{
+                        'form-control': true,'form-control-sm': true,
+                        'invalid': advertiserManagerForm.controls.url.invalid && advertiserManagerForm.controls.url.dirty,
+                        'valid': advertiserManagerForm.controls.url.valid && advertiserManagerForm.controls.url.dirty}
+                        " />
+                            <div *ngIf="advertiserManagerForm.controls.url.invalid && (advertiserManagerForm.controls.url.dirty || advertiserManagerForm.controls.url.touched)"
+                                class="error-list">
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.url.errors.required">
+                                    <small>The url is required</small>
+                                </span>
+                                <span class="error-list__item" *ngIf="advertiserManagerForm.controls.url.errors.pattern">
+                                    <small>The url is not in a valid format</small>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="organisation">Organisation</label>
+                            <input formControlName="organisation" type="text" class="form-control form-control-sm" id="organisation" placeholder="Enter organisation"
+                                maxlength="100" />
+                        </div>
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="telephone">Telephone</label>
+                            <input formControlName="telephone" type="text" class="form-control form-control-sm" id="telephone" placeholder="Enter telephone"
+                                maxlength="100" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="address">Address</label>
+                            <input formControlName="address" type="text" class="form-control form-control-sm" id="address" placeholder="Enter address"
+                                maxlength="100" />
+                        </div>
+                        <div class="form-group col-xs-12 col-md-6">
+                            <label for="postcode">Postcode</label>
+                            <input formControlName="postcode" type="text" class="form-control form-control-sm" id="postcode" placeholder="Enter postcode"
+                                maxlength="100" />
+                        </div>
+                    </div>
+
+
+        </fieldset>
+        </form>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,112 @@
+<section>
+    <div class="row advertiser-list">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <label for="searchAdvertiserTerm">
+                            <small>Search by name:</small>
+                        </label>
+                        <input #searchAdvertiserTerm type="text" class="form-control form-control-sm" id="searchAdvertiserTerm" aria-describedby="searchAdvertiserTerm"
+                            placeholder="Enter search term" maxlength="50" />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 text-right">
+                    <p>
+                        <button href="#" title="Add advertiser" class="btn btn-primary btn-sm" (click)="open(content)">Add advertiser</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="table-responsive">
+                <table>
+                    <thead class="thead-brand">
+                        <tr>
+                            <th scope="col">Name
+                                <a class="btn btn-sm" (click)="ApplySort('firstName', SortDirection.Ascending)" title="Sort by Firstname, Asc">
+                                    <i class="fas fa-sort-down"></i>
+                                </a>
+                                <a class="btn btn-sm" (click)="ApplySort('firstName', SortDirection.Descending)" title="Sort by Firstname, Desc">
+                                    <i class="fas fa-sort-up"></i>
+                                </a>
+                            </th>
+                            <th scope="col">Organisation
+                                <a class="btn btn-sm" (click)="ApplySort('name', SortDirection.Ascending)" title="Sort by Organisation, Asc">
+                                    <i class="fas fa-sort-down"></i>
+                                </a>
+                                <a class="btn btn-sm" (click)="ApplySort('name', SortDirection.Descending)" title="Sort by Organisation, Desc">
+                                    <i class="fas fa-sort-up"></i>
+                                </a>
+                            </th>
+                            <th scope="col">Url
+                                <a class="btn btn-sm" (click)="ApplySort('orgurl', SortDirection.Ascending)" title="Sort by Url, Asc">
+                                    <i class="fas fa-sort-down"></i>
+                                </a>
+                                <a class="btn btn-sm" (click)="ApplySort('orgurl', SortDirection.Descending)" title="Sort by Url, Desc">
+                                    <i class="fas fa-sort-up"></i>
+                                </a>
+                            </th>
+                            <th scope="col">Telephone
+                            </th>
+                            <th scope="col">
+                                Address
+                            </th>
+                            <th scope="col">
+                                Postcode
+                            </th>
+                        </tr> 
+                    </thead>
+                    <tbody *ngIf="!advertisersCollection">
+                        <td scope="row" colspan="4">There are currently no Advertisers</td>
+                        <tbody>
+                            <tbody *ngIf="advertisersCollection">
+                                <tr *ngFor="let advertiser of advertisersCollection | filter: searchTerm | sortBy: sortByParam | paginate: { itemsPerPage: defaultItemsPerPage, currentPage: p }; let i = index;">
+                                    <td scope="row" [innerHTML]="advertiser.firstName + ' ' + advertiser.lastName"></td>
+                                    <td [innerHTML]="advertiser.name"></td>
+                                    <td>
+                                        <a [href]="advertiser.orgurl" title="advertiser.name" target="_blank">{{ advertiser.orgurl }}
+                                            <i class="fa fa-external-link-alt"></i>
+                                        </a>
+                                    </td>
+                                    <td [innerHTML]="advertiser.telephone"></td>
+                                    <td [innerHTML]="advertiser.addressDetails.address"></td>
+                                    <td [innerHTML]="advertiser.addressDetails.postcode"></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <p>
+                                            <small>No of advertisers: {{ (advertisersCollection) ? (advertisersCollection | filter:
+                                                searchTerm).length : 0 }} </small>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="text-right">
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Add Advertiser</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-advertisers-manager></app-advertisers-manager>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+        <button type="button" class="btn btn-outline-dark" (click)="SubmitForm()">Add Advertiser</button>
+    </div>
+</ng-template>
