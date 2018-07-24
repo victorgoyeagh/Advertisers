@@ -10,7 +10,7 @@ import { delay, debounceTime } from 'rxjs/operators';
     selector: 'app-advertisers-manager',
     templateUrl: './advertisers-manager.component.html',
     styleUrls: ['./advertisers-manager.component.scss']
-})
+}) 
 export class AdvertisersManagerComponent implements OnInit {
     private textRestrictRegex = new RegExp("^[0-9,a-z,A-Z ,.'-]+$");
     private urlRestrictRegex = new RegExp("^(https?|ftp)://(-\.)?([^\s/?\.#-]+\.?)+(/[^\s]*)?$");
